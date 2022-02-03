@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    
+      
+        游戏化设计（2)： 微信读书的游戏化分析 |
+
+      
+      Ran Zhang
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      根据游戏化思维的一些框架，分析微信读书APP的游戏化设计
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.24f9f28bfaca2cdc5a222bb5e42d30c701d7ffb0b31d30dfc4afc0e044dfbf24.css"
+    integrity="sha256-JPnyi/rKLNxaIiu15C0wxwHX/7CzHTDfxK/A4ETfvyQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/post/%E6%B8%B8%E6%88%8F%E5%8C%96%E8%AE%BE%E8%AE%A1-%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="游戏化设计（2)： 微信读书的游戏化分析"/>
+<meta name="twitter:description" content="根据游戏化思维的一些框架，分析微信读书APP的游戏化设计"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "游戏化设计（2)： 微信读书的游戏化分析",
+        "headline": "游戏化设计（2)： 微信读书的游戏化分析",
+        "alternativeHeadline": "",
+        "description": "
+      根据游戏化思维的一些框架，分析微信读书APP的游戏化设计
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/post\/%E6%B8%B8%E6%88%8F%E5%8C%96%E8%AE%BE%E8%AE%A1-%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "copyrightYear" : "2020",
+        "dateCreated": "2020-08-20T12:25:36.00Z",
+        "datePublished": "2020-08-20T12:25:36.00Z",
+        "dateModified": "2020-08-20T12:25:36.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Ran Zhang",
+            "url": "",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "images/site-feature-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "\/post\/%E6%B8%B8%E6%88%8F%E5%8C%96%E8%AE%BE%E8%AE%A1-%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6\/",
+        "wordCount" : "90",
+        "genre" : [ 
+      
+      "产品分析和设计"
+
+    ],
+        "keywords" : [ 
+      
+      "游戏化"
+
+    
+      
+        ,
+
+      
+      "产品分析"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/portfolio/"
+              
+              title=""
+              >Portfolio</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about/"
+              
+              title=""
+              >About</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture" />
+        <h3 title=""><a href="/">My blog</a></h3>
+        <div class="description">
+          <p>Hey! I am Ran Zhang</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://www.linkedin.com/in/ran-zhang-915033220/" rel="me" aria-label="Linkedin" title="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/azurey0/" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="mailto:rzgzhang@ucdavis.edu" rel="me" aria-label="e-mail" title="e-mail">
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          Ran Zhang
+          2022
+
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/imprint/"
+            
+            title=""
+          >
+            imprint
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>游戏化设计（2)： 微信读书的游戏化分析</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                20/8/2020
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">One-minute read</span>
+          </div>
+
+        
+      </div><p> 在阅读完《游戏化思维：改变未来商业的新力量》之后，我尝试用里面提到的框架和方法分析一款我非常喜欢的App，微信读书。</p>
+<h4 id="先放结论">先放结论</h4>
+<p> 微信读书的游戏化设计是什么？——让读书变得轻松、舒服、有乐趣<br>
+ 微信读书游戏化设计的核心机制是什么？——打造一个与朋友一同读书、竞争、讨论的用户圈层；针对各种鼓励用户的游戏化行为进行外部奖励（免费书币、时长）<br>
+ 这个设计成功吗？——大体成功<br>
+ 游戏化设计对微信读书的整体设计有多大的影响？——可能50%吧，另外50%来自于出色的UI<br>
+ 微信读书游戏化的经验可以重复利用在其他产品上吗？——可以也不可以，可以在于其设计的思路可以借鉴于很多产品，不可以在于微信读书不用自负盈亏，很多机制不能直接拿去借鉴。</p>
+<p> 那么，微信读书的游戏化元素，真的就适合它吗？为了回答这一问题，可以从以下的角度拆解。</p>
+<h4 id="微信读书适合游戏化吗要如何游戏化">微信读书适合游戏化吗？要如何游戏化？</h4>
+<p> 首先，微信读书的核心活动，就是读书。围绕读书这个动作，可以从以下几个方面考虑游戏化与读书的关联：</p>
+<h5 id="1-动机">1. 动机</h5>
+<p> 动机源自于自我决定理论的动机分类，可以分为:<br>
+ <strong>能力需求</strong>：面对读书这个任务，我有足够的能力可以读完这本书，并且理解书中的内容，进一步进行评价输出</p>
+<blockquote>
+<p>为了让用户更好的感知到自己的能力level，app设计了<strong>划线、书籍阅读进度、评论、点赞</strong>的功能。</p>
+</blockquote>
+<p> <strong>关系需求</strong>：我希望我的朋友看到我读完这本厉害的书，让他们知道我是一个厉害的人</p>
+<blockquote>
+<p>关联的现有功能包括<strong>排行榜、分享、书架等</strong>。</p>
+</blockquote>
+<p> <strong>自主需求</strong>：读完这本书，我离我的目标更近了，我变得更强了</p>
+<blockquote>
+<p><strong>目前较弱，依赖于用户自身</strong></p>
+</blockquote>
+<h5 id="2-是否可以设置有趣的目标">2. 是否可以设置有趣的目标？</h5>
+<p> 比如，当用户不想读书时，微信读书可以吸引用户主动点开吗？<br>
+ 个人认为不能，因为目前并不会像其他app一样在用户流失过程中发送短信、邮件等提醒，也没有做一些周期性的运营活动。但这也许是产品设计一种‘克制’的表现：如果强行要求用户登录，则会降低用户的满意度。</p>
+<h5 id="3--预期行为可以被模式化吗">3.  预期行为可以被模式化吗？</h5>
+<p> 目前已经有模式化的预期行为，即以阅读时长兑换书币、免费卡的机制，这种机制也是很多用户选择微信读书的重要原因。</p>
+<h5 id="4-游戏会和现行机制冲突吗">4. 游戏会和现行机制冲突吗？</h5>
+<p> 不适用，这个问题更适用于组织内部、2B的游戏化系统</p>
+<p> 所以微信读书应该抓住<strong>动机、模式化</strong>两点进行运作，现行来看达到了较好的效果：<strong>通过适量的外部奖励（书币、免费读）结合了用户自身动机和心理，且外部奖励与游戏化让微信游戏始终站在用户一侧：用户和微信读书的目的是一致的，都是提升DAU和阅读时长。</strong> 另外微信读书适当向用户让利以获得用户好感。<br>
+ P.S. 这一点上，可能有人会认为微信读书的团队的目的是获得更高的ARPU，但是就目前观察而言，微信读书不属于腾讯系核心盈利产品，没有那么多资源可以调动，但同样也没有那么多的业绩压力，微信读书的定位更类似于腾讯系生态体系中的一种不可缺少的物种，假设腾讯想要设计一个888年卡会员，包含了xx游戏VIP、腾讯视频会员、QQ音乐会员和微信读书会员，那这种体系一是可以和阿里等同样具备生态化实力的大厂竞争，二是可以较容易地击败‘standalone’的阅读APP。<br>
+ 其他一些我觉得做的不错的点：</p>
+<ul>
+<li>协调用户反馈
+每周给出用户上周阅读曲线和数据、在排行榜处也适时激励用户，告诉用户“你做得很好“。</li>
+<li>不作恶
+不强制用户使用游戏化标准，当用户不使用任何游戏化元素时也可以通过纯粹阅读获得奖励</li>
+<li>克制的外部奖励
+书币和时长的奖励都没有通过强制向用户推荐书籍实现</li>
+</ul>
+<p> 接下来，对微信读书的游戏化元素进行更细致的梳理吧~</p>
+<h4 id="微信读书游戏化元素梳理">微信读书游戏化元素梳理</h4>
+<p><strong>每日一答</strong><br>
+ 入口：“我”（个人主页）、主页下滑（较低位置）<br>
+ APP拉取微信小程序，用户通过小程序参与答题闯关活动获得积分、段位，可以用于兑换书币、免费时长、书籍等。<br>
+ 两种游戏模式：</p>
+<ul>
+<li>每日一答
+人机，每天限12题，难度较大，通过可以瓜分书币、无限卡<br>
+游戏元素：积分，用以和奖励构成联系<br>
+机制：挑战
+在失败时，可以“复活”的方式为以下，鼓励了消费/商业化/裂变
+<figure class="img-lg"><img src="/images/weread_1.jpg"/>
+</figure>
+</li>
+<li>问答PK<br>
+与真人玩家PK或与好友PK，计算积分换取段位。<br>
+游戏元素：积分、排行榜，用以确认获胜状态、标识个人成就（段位）<br>
+机制：竞争<br>
+<figure class="img-lg"><img src="/images/weread_2.png"/>
+</figure>
+</li>
+</ul>
+<p><strong>翻一翻</strong>
+<figure class="img-lg"><img src="/images/weread_3.jpg"/>
+</figure>
+
+ 点击进入抽卡界面，从9张卡片中抽取两本赠书，若分享好友可以另外抽取两本：
+<figure class="img-lg"><img src="/images/weread_4.jpg"/>
+</figure>
+
+ 机制：机会，随机性的因素<br>
+ 组件元素：收集<br>
+ “翻”这个动作的成本非常低，而又能获取与兴趣相关书籍，个人猜测该功能点击率会很高。满足了当下抽卡流行的一种特殊偏好。</p>
+<p><strong> 以上两种游戏化功能属于社交性较弱的。</strong><br>
+<strong> 以下两种功能游戏化功能与社交性融合更紧密，更类似一种裂变模式</strong></p>
+<p><strong>组队抽取无限卡</strong><br>
+ 邀请4人，每人进队时可以领取新的无限卡，7天为一期队伍，每期队伍不能完全相同。
+<figure class="img-lg"><img src="/images/weread_5.jpg"/>
+</figure>
+
+<strong>集赞获取无限卡</strong><br>
+ 分享联名卡，每两个赞可换取2天无限卡，最多12天。
+<figure class="img-lg"><img src="/images/weread_6.jpg"/>
+</figure>
+
+<strong>对于读书这一活动本身的游戏化</strong><br>
+ 在以往的阅读类产品中，购买或免费获得图书-阅读-标记图书-记笔记和评论-标记阅读状态已经成为常态，微信读书在此基础上加入了更多的社交元素，将读书打造成类似于“阅读角”的状态，以鼓励阅读本身。</p>
+<ul>
+<li><strong>我可以看到我的社交圈内朋友都在读什么：</strong><br>
+<figure class="img-lg"><img src="/images/weread_7.jpg"/>
+</figure>
+
+ 从个人社交圈来说，使用这款产品的人群包括很多渴望自我提升的青年人，从动机角度，追求的是能力需求和自主需求。<br>
+ 当我看到我的圈层在读某种书时，会产生两种想法：1.好奇，我的朋友都在阅读什么？2. 竞争，我渴望比同伴懂得更多。<br>
+ 特别的，这种心态只适用于我的社交圈内：我不关心一个陌生人在读什么。<br>
+ 从这一点上，微信读书最开始从微信小程序开始直至发展为独立APP，占了与微信圈层紧密联系的便利，这是其他非腾讯系读书产品不具备的优势，且将其优势利用的很好。</li>
+<li><strong>当我读书时我不是一个人在战斗 ：</strong>
+ 在阅读某本书籍时，微信读书可以看到他人的划线、讨论。这一点在早年的豆瓣阅读上也可以实现，比起线下一个人单独阅读艰涩的书籍，当我看到划线和评论时，即让我心理上感觉更舒适，也让我能更快抓住书本重点。<br>
+ 微信读书另外加的功能在于：他人阅读进度、他人的点赞。
+<figure class="img-lg"><img src="/images/weread_8.jpg"/>
+</figure>
+<br>
+ 看到他人阅读进度同样是一种成就组件，类似于排行榜。<br>
+<figure class="img-lg"><img src="/images/weread_9.jpg"/>
+</figure>
+<br>
+ 而点赞则是赠予的组件，奖励机制和情感鼓励机制。对于鼓励完成较难的行为比较有效，类似的设计在Keep完成训练时也有看到。<br>
+ 但问题在于，出现许多如上图营销号，影响用户体验。是否可以加入一些外部奖励or在结束阅读时弹窗显示“鼓励其他也在读这本书的人”的设计呢？</li>
+<li><strong>读书时长排行榜</strong><br>
+ 但也带来了排行榜的问题：我看到朋友比我多了太多时，我甚至不想去继续追赶。<br>
+ 就这一点来说微信读书加入了不显示排行榜的功能。</li>
+</ul>
+<h4 id="小结">小结</h4>
+<ul>
+<li>整体的感受是微信读书熟练地借鉴了腾讯做手游的元素，<strong>PBL，抽卡，UI素材</strong>等等，进行了一种<strong>符合微信读书产品气质的文艺范包装，悄悄地做了游戏化设计</strong>。</li>
+<li>然而微信读书的成功也离不开<strong>微信的人群导入</strong>，我个人使用它的一个目的也是好奇朋友们在读什么，共同进步hhh</li>
+<li>另一个重要的因素，<strong>UI设计</strong>，非常简洁优雅，具体的一个分析可以看post <a href="http://www.qidianlife.com/Singular/index.php?m=App&amp;c=EveryDay&amp;a=index&amp;id=40">http://www.qidianlife.com/Singular/index.php?m=App&amp;c=EveryDay&amp;a=index&amp;id=40</a></li>
+<li>没有太大的竞争和盈利的压力，我认为也是一个能做好读书类产品的重要因素，只有在这种环境下才能去认真打磨功能和设计，不为商业化做出太多让步。</li>
+</ul>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+          <span class="separator"><a class="category" href="/categories/%E4%BA%A7%E5%93%81%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1/">产品分析和设计</a></span>
+
+
+
+
+        
+
+        
+          <span class="separator"><a class="tag" href="/tags/%E6%B8%B8%E6%88%8F%E5%8C%96/">游戏化</a><a class="tag" href="/tags/%E4%BA%A7%E5%93%81%E5%88%86%E6%9E%90/">产品分析</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          Ran Zhang
+          2022
+
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/imprint/"
+            
+            title=""
+          >
+            imprint
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></body>
+</html>

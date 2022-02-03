@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    
+      
+        Game Thinking (2)： An analysis of gamification of WeRead |
+
+      
+      Ran Zhang
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      An analysis of gamification design of Wexin Reading based on the framework from previous post
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.24f9f28bfaca2cdc5a222bb5e42d30c701d7ffb0b31d30dfc4afc0e044dfbf24.css"
+    integrity="sha256-JPnyi/rKLNxaIiu15C0wxwHX/7CzHTDfxK/A4ETfvyQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/post/gamethinking2ananalysisofgamificationofweread/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Game Thinking (2)： An analysis of gamification of WeRead"/>
+<meta name="twitter:description" content="An analysis of gamification design of Wexin Reading based on the framework from previous post"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "Game Thinking (2)： An analysis of gamification of WeRead",
+        "headline": "Game Thinking (2)： An analysis of gamification of WeRead",
+        "alternativeHeadline": "",
+        "description": "
+      An analysis of gamification design of Wexin Reading based on the framework from previous post
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/post\/gamethinking2ananalysisofgamificationofweread\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "copyrightYear" : "2020",
+        "dateCreated": "2020-08-20T12:25:36.00Z",
+        "datePublished": "2020-08-20T12:25:36.00Z",
+        "dateModified": "2020-08-20T12:25:36.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Ran Zhang",
+            "url": "",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "images/site-feature-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "\/post\/gamethinking2ananalysisofgamificationofweread\/",
+        "wordCount" : "1533",
+        "genre" : [ 
+      
+      "Product Thoughts"
+
+    ],
+        "keywords" : [ 
+      
+      "Gamification"
+
+    
+      
+        ,
+
+      
+      "Product Thoughts"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/portfolio/"
+              
+              title=""
+              >Portfolio</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about/"
+              
+              title=""
+              >About</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture" />
+        <h3 title=""><a href="/">My blog</a></h3>
+        <div class="description">
+          <p>Hey! I am Ran Zhang</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://www.linkedin.com/in/ran-zhang-915033220/" rel="me" aria-label="Linkedin" title="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/azurey0/" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="mailto:rzgzhang@ucdavis.edu" rel="me" aria-label="e-mail" title="e-mail">
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          Ran Zhang
+          2022
+
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/imprint/"
+            
+            title=""
+          >
+            imprint
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>Game Thinking (2)： An analysis of gamification of WeRead</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                20/8/2020
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">8-minute read</span>
+          </div>
+
+        
+      </div><p> After reading <em>For the Win: How Game Thinking Can Revolutionize Your Business</em> By Kevin Werbach, I applied its framework to analyze an app I like very much: WeRead. By official description, it is &lsquo;an official reading application based on WeChat relationship chain&rsquo;. Weread aims to build a perfect reading experience, recommend appropriate books, and allow users to interact with friends in reading.</p>
+<h4 id="so-how-does-weread-integrate-game-thinking">So how does Weread integrate game thinking?</h4>
+<p> What&rsquo;s the core thought behind gamification of Weread? ——Make reading easy, comfortable and fun <br>
+ What&rsquo;s the mechanism of Weread&rsquo;s gamification? ——Build a circle where firends can read together and even compete with each other; give extra bonus to encourage users' gaming actions, for example, extension of free-trial and reading tokens.<br>
+ Is the game design successful？——Generally successful<br>
+ How much does game design contribute to the success of the app？——Probably 50%, with the other 50% coming from great UI design<br>
+ Can we migrate the same gamification to other apps in the future? ——Of course, but not in the sense of making more profit, as Weread doesn&rsquo;t neccesary to self-financing</p>
+<p> Well, so do the gamification elements of Weread perfectly suits the app? To answer this question, we can think from following angles:</p>
+<h4 id="does-weread-suits-a-gamification-design-if-so-how-should-we-do-that">Does Weread suits a gamification design? If so, how should we do that?</h4>
+<p> Needless to say, the core function of Weread is reading. So we can think of the relationship between reading and gaming as following:</p>
+<h5 id="1-motivation">1. Motivation</h5>
+<p> According to Self-Determination Theory, there are three basic motivation needs of human, that is:<br>
+ <strong>Competence</strong>：People need to be effective in dealing with environment. When reading, ideally people should feel they are capable to finish reading the material and understand it, even give their own thoughts about it.</p>
+<blockquote>
+<p>In order to let users aware their competence, the app designed <strong>underline, reading progress, comment and likes</strong> functions.(Adds up from 2022: the recommendation is another crucial part, but it will be a long story)</p>
+</blockquote>
+<p> <strong>Relatedness</strong>：People need to have close, affectionate relationships with others. People hope they are knowledgable and all their friends can tell.</p>
+<blockquote>
+<p>Related functions involves <strong>Ranking Board, share and bookshelf shown to others</strong>. Weread is integrated with Wexin, the most popular social app in China in which everyone has a network. So these functions are empowered through the network.</p>
+</blockquote>
+<p> <strong>Autonomy</strong>：People need to control the course of their lives. After reading the books, people want to feel they are step closer to their goals.</p>
+<blockquote>
+<p><strong>Well, I don&rsquo;t see the relatedness to the current version of Weread</strong></p>
+</blockquote>
+<h5 id="2-can-we-set-achievable-and-interesting-goals-for-users">2. Can we set achievable and interesting goals for users?</h5>
+<p> For example, when people don&rsquo;t want to read, can Weread attracts their attention by sending push or something similar? <br>
+ Personally I think no. Weread are not sending endless notifications and pushes to users, neither exists periodically &lsquo;events&rsquo; as in online games. But think differently, do we really need to attract users when they are not here? Think about what do you feel when receiving not important pushes, it is not satisfactory. I think there&rsquo;s a parsimony in app design &ndash; that is, not to disturb your users too much. This is a principle many apps forget when the designers are eargerly reaching out to users to fulfill their KPIs.</p>
+<h5 id="3--can-we-build-a-pattern-on-expected-users-behavior">3.  Can we build a pattern on expected users' behavior?</h5>
+<p> Yes! There is a pattern in Weread that is simple and practical: when your reading time achieve certain level, you can exchange it with &lsquo;reading tokens&rsquo; and extension of free trial. This is an important reason why many users stick with Weread.</p>
+<h5 id="4-does-game-design-cause-conflict-with-current-system">4. Does game design cause conflict with current system?</h5>
+<p> Not applicable here, this problem occurs more in business organizations.</p>
+<p> To summarize, Weread can apply game thinking in <strong>motivation and pattern design</strong>, and they are integrated well: <strong>Through understanding of users' thoughts and appropriate bonus(reading tokens, free trial), the development team and users achieve the same goal of reading more</strong><br>
+ P.S. One thing to address is that Weread might not be self-financing. As its parent company Tencent makes most profit from ads and mobile games.  So Weread does not have big problem of surviving. <br>
+ Another game design that I feel good：</p>
+<ul>
+<li>Give user feedback
+Weread has a weekly reading dashboard showing reading data. It also encourages people when they view the reading dashboards. They all tell people &ldquo;you are doing pretty good!&rdquo;</li>
+<li>Don&rsquo;t do evil and be restrained
+There is no force in using any of the game design elements or participating in game events, they receive bonus just because of they stay and read.</li>
+</ul>
+<p> Here comes the detailed elements of game design:</p>
+<h4 id="elements-of-game-design">Elements of Game Design</h4>
+<p><strong>Answers of the Day(每日一答)</strong></p>
+<p> Entrance：Homepage, homepage scorlling down<br>
+ Description: it opens a mini-program where users answer knowledgable questions, just like strike combos in games. They receive tokens after each level, which can be used to exchange for free reading time, books, etc.<br>
+ There are 2 modes:</p>
+<p><strong>a) Answers of the Day 每日一答</strong><br>
+ You answer 12 questions generates by the program. The questions are usually challenging and bonus are given only 12 questions are completed, and tokens can exchange for books and free reading time</p>
+<ul>
+<li>Game elements：points are used for bonus</li>
+<li>Game mechanism：challenges
+When people fail, they can use the following method to &lsquo;reborn&rsquo; and continue the game, which encourages them to spend more money
+<figure><img src="/images/weread_1.jpg"/>
+</figure>
+
+<strong>b) PK</strong><br>
+Users pk with real persons or friends, they gain points for ranks.</li>
+<li>Game elements：points, ranking board, which are used to symbolize the winner and achievements.</li>
+<li>Game mechanism：competition<br>
+<figure><img src="/images/weread_2.png"/>
+</figure>
+</li>
+</ul>
+<p><strong>Flop  翻一翻</strong>
+<figure><img src="/images/weread_3.jpg"/>
+</figure>
+</p>
+<p> Entrance: click to enter, flop 2 of 9 cards to get gift books, another 2 flops are given if shared the app with friends.</p>
+<figure><img src="/images/weread_4.jpg"/>
+</figure>
+
+<ul>
+<li>Game mechanism：opportunities，random factors</li>
+<li>Game elements：collect</li>
+</ul>
+<p> The cost of click a card and flop is very low for user, and they can get a book they possibly like. Then why not?</p>
+<p> These 2 game design are of less &lsquo;social&rsquo; elements. <br>
+ The following 2 design are more related with social elements, which is more alike virus marketing.</p>
+<p><strong>Team up for Free trial Cards 组队抽取无限卡</strong><br>
+ Description: a user invite 4 people, each of them will get a free trial card when they join. The team exists for a week, so the following week a user will set up a new team with at least 1 person not from the previous team.</p>
+<figure><img src="/images/weread_5.jpg"/>
+</figure>
+
+<p><strong>Collect &lsquo;likes&rsquo; for Free trial Cards 集赞获取无限卡</strong></p>
+<p> Description: user share their card and get &lsquo;likes&rsquo; from friends, every 2 likes can be exchanged for 2 days' free reading, with maximum of 12 days' free reading.</p>
+<figure><img src="/images/weread_6.jpg"/>
+</figure>
+
+<p><strong>Game design on reading</strong><br>
+ In other reading apps, buy books-read-mark books-comment-mark complete has become a common process. On the basis of that, Weread adds more social elements where to build a book club online, encouraging people to read more. For example:</p>
+<ul>
+<li><strong>I can see what my friends are reading</strong></li>
+</ul>
+<figure><img src="/images/weread_7.jpg"/>
+</figure>
+
+<p> The target customers of this product are basically people wants to improve themselves. From the motivation perspective, they are pursuing competence and autonomy when they use the app.<br>
+ So when I see what my friends are reading, I will be curious about what they learnt. Specially, I care more about someone I know(which is my Wechat friend) compared with some randome people. <br>
+ From this point, Weread has the advantage of being related to Wechat circle. It grew up from a plugin, or mini-program in Wechat and became an mobile application successfully, because its huge user base.</p>
+<ul>
+<li><strong>I am not alone when I read</strong></li>
+</ul>
+<p> When reading a book, Weread allows users to see others' public underlines and discussion. Users can also see how many people are reading this book today. Compared to reading a difficult book alone, it is better to be accompanied by someone. It&rsquo;s also easier to focus on important points when seeing underlines by others.<br>
+<figure><img src="/images/weread_8.jpg"/>
+</figure>
+</p>
+<p> Users can also see others' reading progress, which encourage them to catch up. It&rsquo;s like a ranking board design.    <br>
+<figure><img src="/images/weread_9.jpg"/>
+</figure>
+</p>
+<p> &lsquo;Likes&rsquo; are elements to applaud for others and it is effective to encourage difficult actions. For example the applauds for atheletes. This design also shows up in an training and sports app called &lsquo;Keep&rsquo;.<br>
+ But there are many robots here, see the figure above. Is it possible to add some extra bonus or a &lsquo;Like&rsquo; button at the end of books?</p>
+<ul>
+<li><strong>Reading time ranking board</strong></li>
+</ul>
+<p> Ranking board is a good design that encourages people to catch up, but it also has problem: I am a lazy one, so when I see there&rsquo;s a very long way to catch up, I just give up. <br>
+ So the smart Weread team adds a button to hide the ranking board.</p>
+<h4 id="conclusion">Conclusion</h4>
+<ul>
+<li>Weread brought game elements from its parent company, the successful mobile game company, like <strong>PBL, flip cards, UI elements</strong>, but the team redesigned to make the elements match the style of Weread, a parsimony, professional and connected reading application.</li>
+<li>Another reason for the success of Weread is it has the blood of Wechat, where people can read books together with their circle.</li>
+<li>One thing to mention: the <strong>UI</strong> design is very elegent and smart, I found a very good post analyzing it: <a href="http://www.qidianlife.com/Singular/index.php?m=App&amp;c=EveryDay&amp;a=index&amp;id=40">http://www.qidianlife.com/Singular/index.php?m=App&amp;c=EveryDay&amp;a=index&amp;id=40</a></li>
+<li>Last, there&rsquo;s not much surviving pressure on Weread, which is an important element for reading applications. Only under this situations can the team spend more time on game design, UI themes and contents, not to yield to making profit.</li>
+</ul>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+          <span class="separator"><a class="category" href="/categories/product-thoughts/">Product Thoughts</a></span>
+
+
+
+
+        
+
+        
+          <span class="separator"><a class="tag" href="/tags/gamification/">Gamification</a><a class="tag" href="/tags/product-thoughts/">Product Thoughts</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          Ran Zhang
+          2022
+
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/imprint/"
+            
+            title=""
+          >
+            imprint
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></body>
+</html>
