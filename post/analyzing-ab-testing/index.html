@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    
+      
+        Analyzing A/B Testing |
+
+      
+      Ran Zhang
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.92.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      A case study of analyzing A/B Test
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.24f9f28bfaca2cdc5a222bb5e42d30c701d7ffb0b31d30dfc4afc0e044dfbf24.css"
+    integrity="sha256-JPnyi/rKLNxaIiu15C0wxwHX/7CzHTDfxK/A4ETfvyQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/post/analyzing-ab-testing/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Analyzing A/B Testing"/>
+<meta name="twitter:description" content="A case study of analyzing A/B Test"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "Analyzing A\/B Testing",
+        "headline": "Analyzing A\/B Testing",
+        "alternativeHeadline": "",
+        "description": "
+      A case study of analyzing A\/B Test
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/post\/analyzing-ab-testing\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "copyrightYear" : "2021",
+        "dateCreated": "2021-12-02T12:25:36.00Z",
+        "datePublished": "2021-12-02T12:25:36.00Z",
+        "dateModified": "2021-12-02T12:25:36.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Ran Zhang",
+            "url": "",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "images/site-feature-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "\/post\/analyzing-ab-testing\/",
+        "wordCount" : "1409",
+        "genre" : [ 
+      
+      "Data Analysis"
+
+    ],
+        "keywords" : [ 
+      
+      "A\/B Testing"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/portfolio/"
+              
+              title=""
+              >Portfolio</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about/"
+              
+              title=""
+              >About</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture" />
+        <h3 title=""><a href="/">My blog</a></h3>
+        <div class="description">
+          <p>Hey! I am Ran Zhang</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://www.linkedin.com/in/ran-zhang-915033220/" rel="me" aria-label="Linkedin" title="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/azurey0/" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="mailto:rzgzhang@ucdavis.edu" rel="me" aria-label="e-mail" title="e-mail">
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          Ran Zhang
+          2022
+
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/imprint/"
+            
+            title=""
+          >
+            imprint
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>Analyzing A/B Testing</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                2/12/2021
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">7-minute read</span>
+          </div>
+
+        
+      </div><p><a href="https://github.com/azurey0/DA/blob/main/ABtesting_case.ipynb">Source Code</a> of this blog.</p>
+<h2 id="introduction">Introduction</h2>
+<p> A/B testing is a widely adopted technique in the commercial field to compare two or more groups’ performance and decide which one is better or the best. With the purpose of better understanding the A/B test, I found a real-life dataset and conduct a complete A/B test result analysis.</p>
+<p> The dataset is generated from Cookie Cats, a mobile puzzle game from Tactile Entertainment several years ago. The game was a classic type of ‘connect three’ game: when players connect three blocks of the same color, the blocks are cleared. And once all the blocks are cleared on the screen, the player enters the next level. When players reach a certain level, they will have to wait a certain time to unlock the next level, or they make purchases. The company is deciding whether to set the in-app purchase level at 30 or 40. So they set up an A/B test to decide which level benefits more in terms of the game round and retention: a similar number of customers were assigned to level 30 and level 40 respectively and randomly, and after some time, the two groups’ game rounds, 1-day retention and 7-day retention of each player are documented.</p>
+<p> To analyze the result, I first do a descriptive analysis for the three metrics. Then for the game rounds, the non-parametric test is used to statistically decide which group has the larger number. For 1-day retention and 7-retention, bootstrapping, i.e., repetitive sampling from the result set, is conducted to measure and compare the result.</p>
+<h2 id="data-description">Data Description</h2>
+<p> The dataset contains information of 90189 players' records without null values, among which 44700 users were assigned to level_30 group randomly, 45489 users were assigned to level 40. Following is a screenshot of the first few rows from the dataset:<br>
+<figure><img src="/images/abtest/1.png"/>
+</figure>
+</p>
+<p> Where <em>userid</em> indicates a unique user number; version of <em>gate_30</em> indicates the user was assigned to the group of encountering in-app purchases at level 30. The assignment happens when she/he installs the app. Same assignments apply to <em>gate_40</em>; <em>sum_gamerounds</em> refers to the total number of game rounds the user played during the first week after installing the app; <em>rentention_1</em> refers to whether the user played the game 1 day after installation; <em>retention_7</em> refers to whether the user played the game 7 days after installation.</p>
+<h2 id="model-development-estimation-and-results">Model Development, Estimation and Results</h2>
+<h4 id="analysis-of-game-round---eda">Analysis of Game Round - EDA</h4>
+<p> Firstly, the descriptive analysis gives an overview of the game round data, I first do a 5-number summary for the level_30 and level_40 group<br>
+<figure><img src="/images/abtest/2.png"/>
+</figure>
+</p>
+<p> The mean of the two groups does not differ much, but the standard deviation of the level 40 group is almost half of the level 30 group, indicating less variation. And for both groups, there is a huge play round gap between 75 percentile of users and 100 percentile of users, which also can be shown from the boxplot of play rounds of the 2 groups: 
+<figure><img src="/images/abtest/3.png"/>
+</figure>
+</p>
+<p> It is clear for level_30, there is an outlier—an addictive player who contributed a lot to the game rounds. And when plotting the number of users who play 1 game round to 100 game rounds, we see the number drops very fast:<br>
+<figure><img src="/images/abtest/4.png"/>
+</figure>
+</p>
+<p> More than 2500 users gave up in the first few rounds for each group and then the trend becomes gentler as the game round increased. The 2 groups perform similarly as the two lines stick to each other.<br>
+ Why is that happening? A first guess is the nature of app store downloading: the data is recorded for every user who downloaded the app, which means there might be some users mistakenly click the download button, or some users don’t research thoroughly before they download and after a few rounds’ test they gave up the game. Another guess would be the nature of the game industry: after users play sometime, the game content is fully exploited and the user lifetime comes to an end naturally. However, further investigation could be made based on the needs of the company.</p>
+<h4 id="analysis-of-game-round---statistical-test">Analysis of Game Round - Statistical Test</h4>
+<p>  Next, I performed a statistical test to decide there is a significant difference in the game rounds of the two groups. I checked the distribution of game rounds of two groups by Shaprio-Wilk test, a test of normality with a null hypothesis as ‘the data is normally distributed' and alternative hypothesis as ‘the data is not normally distributed’. The two groups both give p-value of 0.0, indicating we have enough evidence to reject null hypothesis and conclude the distribution is non-normal. Then I conducted Man-Whitney U test, a non-parametric test with similar usages of two-sample t-test, to see if there’s a significant difference between the 2 groups:</p>
+<p>$$ H_0: Level \space 30 \space has \space smaller \space or \space equal \space mean \space play \space rounds \space than \space Level \space 40 \space group$$</p>
+<p>$$ H_1: Level \space 30 \space group \space has \space a \space larger \space mean \space play \space rounds  \space than \space Level \space  40 \space group $$</p>
+<p> And the test result gives a p-value of 0.025, indicating we have enough evidence to reject the null hypothesis and level 30 group has a larger mean play rounds – if the company wants users to play more rounds of the game, they should set the level at 30.</p>
+<h4 id="analysis-of-retention---eda">Analysis of Retention - EDA</h4>
+<p>  Similarly I first look at the descriptive data of retention:</p>
+<figure><img src="/images/abtest/5.png"/>
+</figure>
+
+<p>  Again the two groups do not appear to differ much. But the 7-day retention is much lower than the 1-day retention generally, which is reasonable by the nature of the simple game: not many players will keep on ‘connecting and clearing’ for 7 days.</p>
+<h4 id="analysis-of-retention---bootstrap">Analysis of Retention - Bootstrap</h4>
+<p> Since the difference between the 2 groups is small, I re-sampled the result set by bootstrapping: repetitive sample from a small dataset with replacement to create many simulations. By these simulations, the sample statistics are more accurate using averages, and with more statistics like standard errors, the confidence interval can be calculated.</p>
+<p> For 1-day retention, I bootstrapping-in other words, randomly re-sample the 2 groups 1000 times, and plot the bootstrap distribution:<br>
+<figure><img src="/images/abtest/6.png"/>
+</figure>
+
+<figure><img src="/images/abtest/7.png"/>
+</figure>
+</p>
+<p> It can be seen clearly from first plot, the bootstrapping gives partly overlapping results of the two groups. From second plot, the distribution of the difference of the bootstrapping result is plotted. It can be viewed similarly to the confidence interval of difference and indicating the 2 groups have a difference in retention rate, where level 30 has a higher retention rate.</p>
+<p> Similar analysis is conducted for the 7-day retention and like with the 1-day retention, the difference is obvious and the level-30 group has better retention.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p> For both retention and sum of game rounds, setting in-app purchase gate at level 30 has a better performance compared to level 40 if we want more customers to stay and play more rounds. There might be several reasons behind that: first, players get bored easily in such a simple game, so they are more bearable of watching long ads at earlier stages. When long ads or purchases happen in the later phase, they would simply quit. Secondly, as the descriptive analysis shows, most people are light players who only play a few rounds—a reasonable guess is that many users cannot reach level 30 or level 40 in such a few rounds, so only loyal players participated in the experiment. These players dive deeper and deeper into the game as level up, and an interruption at later stage harm more than an interruption in an earlier one.<br>
+ Besides, setting an early stage of ads watching is more convincing for ad providers—so it is a win-win decision.</p>
+<hr>
+<p> There would be improvements in my analysis.</p>
+<ul>
+<li>For example, there are obvious outlier data for both groups, and these positive outliers may be very important customers to a game company. The company may wish to analyze and interview these customers separately, rather than putting them in the experiment. The data is skewed because of these outliers, so maybe analyzing after removing these users reveals a more general result.</li>
+<li>Similarly, it would be helpful to divide customers into different cohorts according to their gaming habits and biographical features and conduct another A/B test.</li>
+<li>Next, other important metrics, such as customer lifetime value, can be added to the test to give a comprehensive picture.</li>
+<li>Furthermore, the A/B test is a one-time test. In the long term, repetitive experiments should be conducted to eliminate occasionality and track long-term customer behavior.</li>
+</ul>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+          <span class="separator"><a class="category" href="/categories/data-analysis/">Data Analysis</a></span>
+
+
+
+
+        
+
+        
+          <span class="separator"><a class="tag" href="/tags/a/b-testing/">A/B Testing</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          Ran Zhang
+          2022
+
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/imprint/"
+            
+            title=""
+          >
+            imprint
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></body>
+</html>
