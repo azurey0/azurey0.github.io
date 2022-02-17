@@ -2,11 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/about/</loc>
-    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/</loc>
-    <lastmod>2021-12-02T12:25:36+08:00</lastmod>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
@@ -18,11 +15,11 @@
                 href="/"
                 />
   </url><url>
-    <loc>/post/analyzing-ab-testing/</loc>
-    <lastmod>2021-12-02T12:25:36+08:00</lastmod>
+    <loc>/post/ab-test2-udacity/</loc>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
-    <lastmod>2021-12-02T12:25:36+08:00</lastmod>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
@@ -35,7 +32,7 @@
                 />
   </url><url>
     <loc>/categories/data-analysis/</loc>
-    <lastmod>2021-12-02T12:25:36+08:00</lastmod>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
@@ -48,6 +45,12 @@
                 />
   </url><url>
     <loc>/post/</loc>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
+  </url><url>
+    <loc>/about/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/ab-test1-a-result-analysis-case/</loc>
     <lastmod>2021-12-02T12:25:36+08:00</lastmod>
   </url><url>
     <loc>/post/rfm/</loc>

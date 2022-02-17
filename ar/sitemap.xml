@@ -3,29 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/ar/english/</loc>
-    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
   </url><url>
-    <loc>/ar/english/about/</loc>
-    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/ar/</loc>
-    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ar"
-                href="/ar/"
-                />
-  </url><url>
-    <loc>/ar/english/post/analyzing-ab-testing/</loc>
-    <lastmod>2021-12-02T12:25:36+08:00</lastmod>
+    <loc>/ar/english/post/ab-test2-udacity/</loc>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
   </url><url>
     <loc>/ar/categories/</loc>
-    <lastmod>2021-12-02T12:25:36+08:00</lastmod>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -38,7 +22,7 @@
                 />
   </url><url>
     <loc>/ar/categories/data-analysis/</loc>
-    <lastmod>2021-12-02T12:25:36+08:00</lastmod>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -51,6 +35,25 @@
                 />
   </url><url>
     <loc>/ar/english/post/</loc>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
+  </url><url>
+    <loc>/ar/</loc>
+    <lastmod>2022-02-17T12:25:36+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ar"
+                href="/ar/"
+                />
+  </url><url>
+    <loc>/ar/english/about/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/ar/english/post/ab-test1-a-result-analysis-case/</loc>
     <lastmod>2021-12-02T12:25:36+08:00</lastmod>
   </url><url>
     <loc>/ar/english/post/rfm/</loc>

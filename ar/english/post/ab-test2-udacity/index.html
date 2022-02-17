@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="ar"
+  data-theme=""
+><head>
+  <title>
+    
+      
+        A/B Test(2): From Start to Finish |
+
+      
+      Ran Zhang
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.92.2" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      Udacity A/B test project, with exploration in sample size calculation
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.24f9f28bfaca2cdc5a222bb5e42d30c701d7ffb0b31d30dfc4afc0e044dfbf24.css"
+    integrity="sha256-JPnyi/rKLNxaIiu15C0wxwHX/7CzHTDfxK/A4ETfvyQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/ar/english/post/ab-test2-udacity/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="A/B Test(2): From Start to Finish"/>
+<meta name="twitter:description" content="Udacity A/B test project, with exploration in sample size calculation"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "english",
+        "name": "A\/B Test(2): From Start to Finish",
+        "headline": "A\/B Test(2): From Start to Finish",
+        "alternativeHeadline": "",
+        "description": "
+      Udacity A\/B test project, with exploration in sample size calculation
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/ar\/english\/post\/ab-test2-udacity\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Ran Zhang"
+        },
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-02-17T12:25:36.00Z",
+        "datePublished": "2022-02-17T12:25:36.00Z",
+        "dateModified": "2022-02-17T12:25:36.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Ran Zhang",
+            "url": "",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "images/site-feature-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "\/ar\/english\/post\/ab-test2-udacity\/",
+        "wordCount" : "2478",
+        "genre" : [ 
+      
+      "Data Analysis"
+
+    ],
+        "keywords" : [ 
+      
+      "A\/B Testing"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/ar/"
+              
+              title=""
+              >الرئيسية</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/ar/post/"
+              
+              title=""
+              >المنشورات</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/ar/about/"
+              
+              title=""
+              >حول</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/ar/contact/"
+              
+              title=""
+              >للتواصل</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile2.jpg" alt="profile picture" />
+        <h3 title=""><a href="/ar">I&#39;m Zhang Ran</a></h3>
+        <div class="description">
+          <p>Hey! I am Ran Zhang</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://www.linkedin.com/in/ran-zhang-915033220/" rel="me" aria-label="Linkedin" title="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/azurey0/" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="mailto:rzgzhang@ucdavis.edu" rel="me" aria-label="e-mail" title="e-mail">
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          Ran Zhang
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>A/B Test(2): From Start to Finish</h1>
+        
+      </div><h2 id="introduction">Introduction</h2>
+<p>Several Google data scientists develops the <a href="https://www.udacity.com/course/ab-testing--ud257">course</a> of A/B test in Udacity, after finishing the course there&rsquo;s a final project to test the understanding of A/B test. This is the description of how I complete the final project, with an exploration on how to calculate sample size.</p>
+<h2 id="the-project">The Project</h2>
+<h3 id="background">Background</h3>
+<p>Referring to the original description:<br>
+&ldquo; At the time of this experiment, Udacity courses currently have two options on the home page:&ldquo;start free trial&rdquo;, and &ldquo;access course materials&rdquo;. If the student clicks &ldquo;start free trial&rdquo;, they will be asked to enter their credit card information, and then they will be enrolled in a free trial for the paid version of the course. After 14 days, they will automatically be charged unless they cancel first. If the student clicks &ldquo;access course materials&rdquo;, they will be able to view the videos and take the quizzes for free, but they will not receive coaching support or a verified certificate, and they will not submit their final project for feedback.</p>
+<p> In the experiment, Udacity tested a change where if the student clicked &ldquo;start free trial&rdquo;, they were asked how much time they had available to devote to the course. If the student indicated 5 or more hours per week, they would be taken through the checkout process as usual. If they indicated fewer than 5 hours per week, a message would appear indicating that Udacity courses usually require a greater time commitment for successful completion, and suggesting that the student might like to access the course materials for free. At this point, the student would have the option to continue enrolling in the free trial, or access the course materials for free instead. This <a href="https://drive.google.com/file/d/0ByAfiG8HpNUMakVrS0s4cGN2TjQ/view?resourcekey=0-6_dPu8BRM1XlRgV51nIbtA">screenshot</a> shows what the experiment looks like.</p>
+<p> The hypothesis was that this might set clearer expectations for students upfront, thus reducing the number of frustrated students who left the free trial because they didn&rsquo;t have enough time—without significantly reducing the number of students to continue past the free trial and eventually complete the course. If this hypothesis held true, Udacity could improve the overall student experience and improve coaches' capacity to support students who are likely to complete the course.</p>
+<p> The unit of diversion is a cookie, although if the student enrolls in the free trial, they are tracked by user­id from that point forward. The same user­id cannot enroll in the free trial twice. For users that do not enroll, their user­id is not tracked in the experiment, even if they were signed in when they visited the course overview page.&rdquo;</p>
+<h3 id="choosing-invariant-metrics">Choosing Invariant Metrics</h3>
+<p> Invariant metrics are those shouldn&rsquo;t vary between control and experiment group. It is like the alerting metrics that tells you whether the test works or not. The invariant metrics are used in sanity checks.</p>
+<p> There are several options offered:</p>
+<ul>
+<li><strong>Number of Cookies</strong>: That is, number of unique cookies to view the course overview
+page. This can be an invariant since we are allocating users based on it.</li>
+<li><strong>Number of user-ids</strong>: That is, number of users who enroll in the free trial. It cannot be an invariant since the willingness to enroll is impacted by the new design.</li>
+<li><strong>Click-through-probability</strong>: That is, number of unique cookies to click the &ldquo;Start free trial&rdquo; button divided by number of unique cookies to view the course overview page. It can be an invariant since the design only impact after clicking the &lsquo;Start free trial&rsquo; button.</li>
+<li><strong>Gross conversion</strong>: That is, number of user­ids to complete checkout and enroll in the
+free trial divided by number of unique cookies to click the &ldquo;Start free trial&rdquo; button. As said, enroll is impacted by the design, so it shouldn&rsquo;t be the invariant.</li>
+<li><strong>Retention</strong>: That is, number of user­ids to remain enrolled past the 14­day boundary (and thus make at least one payment) divided by number of user­ids to complete checkout. Again, this is rather what we want to measure rather than control factors.</li>
+<li><strong>Net conversion</strong>: That is, number of user­ids to remain enrolled past the 14­day
+boundary (and thus make at least one payment) divided by the number of unique
+cookies to click the &ldquo;Start free trial&rdquo; button. The same as Retention.</li>
+</ul>
+<h3 id="choosing-evaluation-metrics">Choosing Evaluation Metrics</h3>
+<p> The options are same as above. We wanna track the impact of the new design, so <strong>Retention</strong> and <strong>Net Conversion</strong> are selected. Gross conversion can also be measured if needed.</p>
+<h3 id="measuring-variability">Measuring Variability</h3>
+<p> Before we move on to use these evaluation metrics. We want to justify our choice that these metrics are <strong>sensitive</strong> and <strong>robust</strong>. Sensitive means the metric can really detect the changes when it exists, and robust means the metric should not change from time to time out of the experiment control issues. Typically we should be really careful when the metric is complex, like nth quantile, median, etc. For those cases, we can not assume a probability distribution of the metric, so we can use A/A test to generate empirical analysis.</p>
+<p> We are given historical data to calculate standard deviation(or standard error if consider historical data as a sample). The formula of standard error for probability, or binomial distribution is $$\sqrt{\frac{p(1-p)}{N}}$$</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># historical data</span>
+<span class="n">pv</span> <span class="o">=</span> <span class="mi">40000</span>
+<span class="n">n_click</span> <span class="o">=</span> <span class="mi">3200</span>
+<span class="n">n_enrol</span> <span class="o">=</span> <span class="mi">660</span>
+<span class="n">p_pay_enrol</span> <span class="o">=</span> <span class="mf">0.53</span>
+<span class="n">test_size</span> <span class="o">=</span> <span class="mi">5000</span>
+
+<span class="c1"># calculation</span>
+<span class="n">p_enrol_click</span> <span class="o">=</span> <span class="n">n_enrol</span><span class="o">/</span><span class="n">n_click</span>
+<span class="n">p_pay_click</span> <span class="o">=</span> <span class="n">p_pay_enrol</span> <span class="o">*</span> <span class="n">p_enrol_click</span> <span class="c1"># assume the two events are independent</span>
+
+<span class="n">sd_retention</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">p_pay_enrol</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_pay_enrol</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">test_size</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_enrol</span> <span class="o">/</span> <span class="n">pv</span><span class="p">)))</span>
+<span class="n">sd_net_conversion</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">p_pay_click</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_pay_click</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">test_size</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_click</span> <span class="o">/</span> <span class="n">pv</span><span class="p">)))</span>
+<span class="n">sd_retention</span>
+<span class="n">sd_net_conversion</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mf">0.05494901217850908</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="mf">0.015601544582488459</span>
+</code></pre></div><p> The values are relatively small suggesting in natural environment they are robust. But to understand further about sensitivity and robust, we can look at historically how the two metrics change; we can also run experiment under different settings which are influential to these metrics to see how they vary(sensitivity), and run experiments in similar settings to see how they remain unchanged(robust)</p>
+<h3 id="determine-sample-size">Determine Sample size</h3>
+<p> The factors influence sample size are:<br>
+ a)Significance level, the alpha (how much false positive rate we can tolerate);<br>
+ b)Power, the beta (how much type II error we can tolerate);
+  In a given sample size, we must trade alpha with beta, that is, decreasing alpha is with the consequence of increasing beta and vice versa. The only we way decreases the two is by collecting more samples.<br>
+ c)Baseline conversion rate for the ratios/probabilities tests. The higher the baseline conversion rate, everything equal, the large the sample we need. <br>
+ d)Minimum Detectable Effect: for practical usage, what&rsquo;s the minimum percentage of improvement we care? It is used to determine beta, given alpha. The smaller the minimum detectable effect, the more precise, so more samples required.</p>
+<p> There are basically three ways to determine sample size.</p>
+<ul>
+<li>
+<p>Rule of Thumb
+For mean tests, there&rsquo;s a general minimum sample size in statistics and applied to many companies. The formula is:<br>
+Known standard deviaion:  $$ n = \frac{16\sigma^2}{\delta^2}$$.
+$\sigma$ is the standard deviation of evaluation metric, $\delta $ is minimum acceptable sampling error.<br>
+Unknown standard deviation: $$ n = \frac{Z^2\sigma^2}{\delta^2}$$.
+$Z$ is the Z-score corresponding to certain significance level.</p>
+</li>
+<li>
+<p>Statistis based Calculation<br>
+ There are many research in this field, and I found 2 that is for 2 sample tests of proportion:</p>
+</li>
+</ul>
+<ol>
+<li>Wang, H. and Chow, S.-C. 2007. Sample Size Calculation for Comparing Proportions. Wiley Encyclopedia of Clinical Trials.http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.571.2708&amp;rep=rep1&amp;type=pdf
+$$n = \frac{(Z_{\alpha/2} + Z_\beta)^2(p_1(1-p_1)+p_2(1-p_2))}{(p_1-p_2)^2}$$</li>
+<li>R and G*Power Formula <a href="https://jeffshow.com/caculate-abtest-required-sample-size.html">https://jeffshow.com/caculate-abtest-required-sample-size.html</a>, also in Applied Statistics and Probability for Engineers, 3rd. Douglas C. Montgomery, George C. Runger, p. 364
+$$n = \frac{[{Z_{\alpha/2}\sqrt{2\frac{(p_1+p_2)}{2}(1-\frac{(p_1+p_2)}{2})}+Z_\beta\sqrt{p_1(1-p_1)+p_2(1-p_2)}}]^2}{(p_1-p_2)^2}$$
+The two above give almost identical results, see plot below.</li>
+<li>Python package of statsmodels.stats.proportion<br>
+Gives small numbers, see plot below.<br>
+ I compared these 3 methods:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">get_size</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">baseline</span><span class="p">,</span> <span class="n">min_effect</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    alpha: significance level
+</span><span class="s1">    beta: statistical power = 1 - beta
+</span><span class="s1">    baseline: baseline conversion rate, in [0,1]
+</span><span class="s1">    min_effect: minimum detectable effect, in [0,1]
+</span><span class="s1">    return: 3 methods of sample size calculation
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+    <span class="n">z_alpha</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">z_beta</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">beta</span><span class="p">)</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">baseline</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">baseline</span> <span class="o">+</span> <span class="n">min_effect</span>
+    
+    <span class="kn">from</span> <span class="nn">statsmodels.stats.power</span> <span class="kn">import</span> <span class="n">zt_ind_solve_power</span>
+    <span class="kn">from</span> <span class="nn">statsmodels.stats.proportion</span> <span class="kn">import</span> <span class="n">proportion_effectsize</span> <span class="k">as</span> <span class="n">es</span>
+         
+    <span class="n">size</span> <span class="o">=</span> <span class="p">((</span><span class="n">z_alpha</span> <span class="o">+</span> <span class="n">z_beta</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">p1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p1</span><span class="p">)</span> <span class="o">+</span> <span class="n">p2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p2</span><span class="p">)))</span> <span class="o">/</span> <span class="p">(</span><span class="n">p1</span> <span class="o">-</span> <span class="n">p2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">size2</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_alpha</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">p1</span> <span class="o">+</span> <span class="n">p2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="n">z_beta</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p1</span><span class="p">)</span> <span class="o">+</span> <span class="n">p2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p2</span><span class="p">)))</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">p1</span> <span class="o">-</span> <span class="n">p2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> 
+    <span class="n">size3</span> <span class="o">=</span> <span class="n">zt_ind_solve_power</span><span class="p">(</span><span class="n">effect_size</span><span class="o">=</span><span class="n">es</span><span class="p">(</span><span class="n">prop1</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">prop2</span><span class="o">=</span><span class="n">p2</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="n">beta</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&#34;two-sided&#34;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">size</span><span class="p">,</span> <span class="n">size2</span><span class="p">,</span> <span class="n">size3</span>
+
+<span class="n">nums</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">size_1</span><span class="p">,</span> <span class="n">size_2</span><span class="p">,</span> <span class="n">size_3</span><span class="o">=</span> <span class="p">[],[],[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+    <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="n">num3</span> <span class="o">=</span> <span class="n">get_size</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">min_effect</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="mf">0.001</span> <span class="ow">and</span> <span class="n">i</span><span class="o">+</span><span class="mf">0.01</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">size_1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>
+    <span class="n">size_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>
+    <span class="n">size_3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num3</span><span class="p">)</span>
+
+<span class="n">lines</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;probability&#39;</span><span class="p">:</span><span class="n">nums</span><span class="p">,</span>
+    <span class="s1">&#39;size_1&#39;</span><span class="p">:</span><span class="n">size_1</span><span class="p">,</span>
+    <span class="s1">&#39;size_2&#39;</span><span class="p">:</span><span class="n">size_2</span><span class="p">,</span>
+    <span class="s1">&#39;size_3&#39;</span><span class="p">:</span><span class="n">size_3</span>
+<span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;probability&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> 
+             <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">]),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span>
+</code></pre></div><figure><img src="/images/abtest2/1.png"/>
+</figure>
+
+<p> 1 and 2 overlapps for most of time, and the package generates very small result. Both sample sizes reaches maximum when baseline effect getting close to 50%.</p>
+<ul>
+<li>Using standard error to calculate
+Another method is to calculate by the relationship between alpha and beta, it&rsquo;s possibly not restricted to 2 sample proportion test.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="c1"># Inputs:</span>
+<span class="c1">#   The desired alpha for a two-tailed test</span>
+<span class="c1"># Returns: The z-critical value</span>
+<span class="k">def</span> <span class="nf">get_z_star</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Inputs:</span>
+<span class="c1">#   z-star: The z-critical value</span>
+<span class="c1">#   s: The standard error of the metric at N=1</span>
+<span class="c1">#   d_min: The practical significance level</span>
+<span class="c1">#   N: The sample size of each group of the experiment</span>
+<span class="c1"># Returns: The beta value of the two-tailed test</span>
+<span class="k">def</span> <span class="nf">get_beta</span><span class="p">(</span><span class="n">z_star</span><span class="p">,</span><span class="n">s</span><span class="p">,</span> <span class="n">d_min</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">SE</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span>  <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">z_star</span><span class="o">*</span><span class="n">SE</span><span class="p">,</span><span class="n">d_min</span><span class="p">,</span><span class="n">SE</span><span class="p">)</span>
+
+<span class="c1"># Inputs:</span>
+<span class="c1">#   s: The standard error of the metric with N=1 in each group</span>
+<span class="c1">#   d_min: The practical significance level</span>
+<span class="c1">#   Ns: The sample sizes to try</span>
+<span class="c1">#   alpha: The desired alpha level of the test</span>
+<span class="c1">#   beta: The desired beta level of the test</span>
+<span class="c1"># Returns: The smallest N out of the given Ns that will achieve the desired</span>
+<span class="c1">#          beta. There should be at least N samples in each group of the experiment.</span>
+<span class="c1">#          If none of the given Ns will work, returns -1. N is the number of</span>
+<span class="c1">#          samples in each group.</span>
+<span class="k">def</span> <span class="nf">required_size</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">d_min</span><span class="p">,</span> <span class="n">Ns</span><span class="o">=</span><span class="mi">200000</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+    <span class="n">z</span><span class="o">=</span><span class="n">get_z_star</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ns</span><span class="p">):</span>        
+        <span class="k">if</span> <span class="n">get_beta</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">d_min</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">beta</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">N</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="c1">## Plot: vary N and see how beta changes, every thing equal</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p_pay_enrol</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_pay_enrol</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">z_star</span> <span class="o">=</span> <span class="mf">1.96</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">:</span>
+    <span class="n">SE</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span>  <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">beta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">z_star</span><span class="o">*</span><span class="n">SE</span><span class="p">,</span><span class="n">d_min</span><span class="p">,</span><span class="n">SE</span><span class="p">))</span>
+
+<span class="n">betas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="n">N</span><span class="p">,</span>
+    <span class="s1">&#39;beta&#39;</span><span class="p">:</span><span class="n">beta</span>
+<span class="p">})</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span> 
+             <span class="n">data</span><span class="o">=</span><span class="n">betas</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span>
+</code></pre></div><figure><img src="/images/abtest2/2.png"/>
+</figure>
+
+<p>So as sample size N increases, the type II error of not rejecting false hypothesis decreases as expected.</p>
+<p> Finally I use statistics method and standard error methods to get the sample size:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## Statistic methods</span>
+<span class="n">base_retention</span> <span class="o">=</span> <span class="n">p_enrol_click</span>
+<span class="n">base_conversion</span> <span class="o">=</span> <span class="n">p_pay_enrol</span>
+<span class="n">retention</span> <span class="o">=</span> <span class="n">get_size</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">baseline</span><span class="o">=</span><span class="n">base_retention</span><span class="p">,</span> <span class="n">min_effect</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">conversion</span> <span class="o">=</span> <span class="n">get_size</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">baseline</span><span class="o">=</span><span class="n">base_conversion</span><span class="p">,</span> <span class="n">min_effect</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="c1"># since we cannot control the number of click and enrol, we need to use historical data to get total pvs for click and control.</span>
+<span class="n">inv_p_click</span> <span class="o">=</span>  <span class="n">pv</span><span class="o">/</span> <span class="n">n_click</span>
+<span class="n">inv_p_enrol</span> <span class="o">=</span>  <span class="n">pv</span> <span class="o">/</span> <span class="n">n_enrol</span>
+<span class="n">re_lst</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">inv_p_click</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">retention</span><span class="p">]</span>
+<span class="n">conv_lst</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">inv_p_enrol</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">conversion</span><span class="p">]</span>
+<span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">re_lst</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">conv_lst</span><span class="p">)))</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mi">4733446</span>
+
+<span class="c1">## Standard Error method</span>
+<span class="s2">&#34;&#34;&#34;number of clickes needed for net_conversion&#34;&#34;&#34;</span>
+<span class="n">click_through_probability</span><span class="o">=</span><span class="mf">0.08</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">1</span> <span class="c1">## Start the guessing from 1</span>
+<span class="n">s</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p_pay_click</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_pay_click</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+<span class="n">d_min</span><span class="o">=</span><span class="mf">0.0075</span>
+<span class="n">req</span><span class="o">=</span><span class="n">required_size</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">d_min</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;number of clicks needed for net_conversion:&#34;</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">req</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;number of pageviews needed for net_conversion:&#34;</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">req</span><span class="o">/</span><span class="n">click_through_probability</span><span class="p">))</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="s1">&#39;number of clickes needed for net_conversion&#39;</span>
+		<span class="s1">&#39;number of clicks needed for net_conversion: 13586&#39;</span>
+		<span class="s1">&#39;number of pageviews needed for net_conversion: 169825&#39;</span>
+
+<span class="s2">&#34;&#34;&#34;number of enrollment needed for retention&#34;&#34;&#34;</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">s</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p_pay_enrol</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_pay_enrol</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+<span class="n">d_min</span><span class="o">=</span><span class="mf">0.01</span>
+<span class="n">req</span><span class="o">=</span><span class="n">required_size</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">d_min</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;number of clicks needed for retention:&#34;</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">req</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;number of pageviews needed for retentionn:&#34;</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">req</span><span class="o">/</span><span class="p">(</span><span class="n">n_enrol</span><span class="o">/</span><span class="n">pv</span><span class="p">)))</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span><span class="s1">&#39;number of enrollment needed for retention&#39;</span>
+		<span class="s1">&#39;number of clicks needed for retention: 19552&#39;</span>
+		<span class="s1">&#39;number of pageviews needed for retentionn: 1184969&#39;</span>
+</code></pre></div><h3 id="sanity-check">Sanity Check</h3>
+<p> In this example we collect data for 30 days, note down every metric of each day.<br>
+ Assume we now complete the data collection, we first need to perform sanity check as mentioned before.<br>
+ The way we do sanity check is to calculate confidence interval for the invariant. If our measured statistics falls in theoratical confidence interval, it passes the sanity check. The formula for 2 mean test margin of error is:<br>
+$$margin \space of \space error = Z_\alpha \sqrt{\frac{p(1-p)}{N_{total}}}$$
+Confidence interval is $$[point \space estimate - margin \space of \space error,  point \space estimate + margin \space of \space error]$$
+For 2 sample proportional test, the formula is:
+$$margin \space of \space error = \sqrt{P_{pool}(1-P_{pool})(\frac{1}{N_{control}}+\frac{1}{N_{experiment}})}$$
+where $$P_{pool} = \frac{N_{control=1}+N_{experiment=1}}{N_{control}+N_{experiment}}$$</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">get_CI_mean</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">control_cnt</span><span class="p">,</span> <span class="n">expr_cnt</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    alpha: significance level
+</span><span class="s1">    control_cnt: control group size
+</span><span class="s1">    expr_cnt: experiment group size
+</span><span class="s1">    p: point estimate
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">sd</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">/</span> <span class="p">(</span><span class="n">control_cnt</span> <span class="o">+</span> <span class="n">expr_cnt</span><span class="p">))</span>    
+    <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+    <span class="n">z_alpha</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">margin_error</span> <span class="o">=</span> <span class="n">sd</span> <span class="o">*</span> <span class="n">z_alpha</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">margin_error</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="n">margin_error</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">pageviews_exp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">pageviews_cont</span><span class="p">)</span><span class="o">+</span><span class="nb">sum</span><span class="p">(</span><span class="n">pageviews_exp</span><span class="p">)),</span> <span class="n">get_CI_mean</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pageviews_cont</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pageviews_exp</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">clicks_exp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">clicks_cont</span><span class="p">)</span><span class="o">+</span><span class="nb">sum</span><span class="p">(</span><span class="n">clicks_exp</span><span class="p">)),</span> <span class="n">get_CI_mean</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">clicks_cont</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">clicks_exp</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">))</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span><span class="mf">0.4993603331193866</span> <span class="p">(</span><span class="mf">0.4988204138245942</span><span class="p">,</span> <span class="mf">0.5011795861754058</span><span class="p">)</span>
+	   <span class="mf">0.49953265259333723</span> <span class="p">(</span><span class="mf">0.4958845713471463</span><span class="p">,</span> <span class="mf">0.5041154286528536</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_CI_prop</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">control_true</span><span class="p">,</span> <span class="n">exp_true</span><span class="p">,</span> <span class="n">control_sum</span><span class="p">,</span> <span class="n">exp_sum</span><span class="p">,</span> <span class="n">phat</span><span class="p">):</span>
+
+    <span class="n">prob_pool</span> <span class="o">=</span>  <span class="p">(</span><span class="n">control_true</span> <span class="o">+</span> <span class="n">exp_true</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">control_sum</span> <span class="o">+</span> <span class="n">exp_sum</span><span class="p">)</span> 
+    <span class="n">se</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">prob_pool</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prob_pool</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">control_sum</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">exp_sum</span><span class="p">))</span>
+    <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+    <span class="n">z_alpha</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">margin_error</span> <span class="o">=</span> <span class="n">se</span> <span class="o">*</span> <span class="n">z_alpha</span>
+    <span class="k">return</span><span class="p">(</span> <span class="n">phat</span> <span class="o">-</span> <span class="n">margin_error</span><span class="p">,</span> <span class="n">phat</span> <span class="o">+</span> <span class="n">margin_error</span><span class="p">)</span>
+
+<span class="n">get_CI_prop</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">clicks_cont</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">clicks_exp</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pageviews_cont</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pageviews_exp</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.001295655390242568</span><span class="p">,</span> <span class="mf">0.001295655390242568</span><span class="p">)</span>
+</code></pre></div><p> So as all point estimate falls in the confidence interval, the sanity check is passed.</p>
+<h3 id="effect-size-test">Effect Size Test</h3>
+<p> Now we measure the experiment metrics. The logic is the same: if point estimate falls in the confidence interval, then the 2 groups does not differ significantly at the alpha level.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">### retention: enroll --&gt; payment</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">payment_exp</span><span class="p">)</span>
+<span class="n">sum_payment_cont</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">payment_cont</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+<span class="n">sum_payment_exp</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">payment_exp</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+<span class="n">sum_enroll_cont</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">enrolls_cont</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+<span class="n">sum_enroll_exp</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">enrolls_exp</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+<span class="n">p_hat</span> <span class="o">=</span> <span class="n">sum_payment_exp</span> <span class="o">/</span> <span class="n">sum_enroll_exp</span> <span class="o">-</span> <span class="n">sum_payment_cont</span> <span class="o">/</span> <span class="n">sum_enroll_cont</span>
+<span class="n">p_hat</span>
+<span class="n">get_CI_prop</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">sum_payment_cont</span><span class="p">,</span> <span class="n">sum_payment_exp</span><span class="p">,</span> <span class="n">sum_enroll_cont</span><span class="p">,</span> <span class="n">sum_enroll_exp</span><span class="p">,</span> <span class="n">p_hat</span><span class="p">)</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span><span class="mf">0.031094804707142765</span>
+<span class="p">(</span><span class="mf">0.008104858181445022</span><span class="p">,</span> <span class="mf">0.05408475123284051</span><span class="p">)</span>
+
+<span class="c1">### net conversion: clicks --&gt; payment</span>
+<span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">enrolls_exp</span><span class="p">)</span>
+<span class="n">sum_clicks_cont</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">clicks_cont</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+<span class="n">sum_clicks_exp</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">clicks_exp</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+<span class="n">sum_payment_cont</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">payment_cont</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+<span class="n">sum_payment_exp</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">payment_exp</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+<span class="n">p_hat</span> <span class="o">=</span> <span class="n">sum_payment_exp</span><span class="o">/</span><span class="n">sum_clicks_exp</span><span class="o">-</span><span class="n">sum_payment_cont</span><span class="o">/</span><span class="n">sum_clicks_cont</span>
+<span class="n">p_hat</span>
+<span class="n">get_CI_prop</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">sum_payment_cont</span><span class="p">,</span> <span class="n">sum_payment_exp</span><span class="p">,</span> <span class="n">sum_clicks_cont</span><span class="p">,</span> <span class="n">sum_clicks_exp</span><span class="p">,</span> <span class="n">p_hat</span><span class="p">)</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span><span class="o">-</span><span class="mf">0.0048737226745441675</span>
+<span class="p">(</span><span class="o">-</span><span class="mf">0.011604500677993734</span><span class="p">,</span> <span class="mf">0.0018570553289053993</span><span class="p">)</span>
+</code></pre></div><p> So both metrics falls in the confidence interval, there&rsquo;s no significant different in retention and conversion in the experiment group and control group.</p>
+<h3 id="sign-test">Sign Test</h3>
+<p> To further verify the result, we perform sign test to see in less power, if the test is significant.<br>
+ (We can further see if it&rsquo;s in weekend or week days that differ much, but I am too lazy to do that.)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">wilcoxon</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">payment_exp</span><span class="p">)</span>
+<span class="n">retention_exp</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">/</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">payment_exp</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">enrolls_exp</span><span class="p">[:</span><span class="n">n</span><span class="p">])]</span>
+<span class="n">retention_cont</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">/</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">payment_cont</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">enrolls_cont</span><span class="p">[:</span><span class="n">n</span><span class="p">])]</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">retention_exp</span><span class="p">,</span> <span class="n">retention_cont</span><span class="p">)</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span><span class="n">WilcoxonResult</span><span class="p">(</span><span class="n">statistic</span><span class="o">=</span><span class="mf">107.0</span><span class="p">,</span> <span class="n">pvalue</span><span class="o">=</span><span class="mf">0.36039113998413086</span><span class="p">)</span>
+
+<span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">enrolls_exp</span><span class="p">)</span>
+<span class="n">conversion_exp</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">/</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">payment_exp</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">clicks_exp</span><span class="p">[:</span><span class="n">n</span><span class="p">])]</span>
+<span class="n">conversion_cont</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">/</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">payment_cont</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">clicks_cont</span><span class="p">[:</span><span class="n">n</span><span class="p">])]</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">conversion_exp</span><span class="p">,</span> <span class="n">conversion_cont</span><span class="p">)</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span><span class="n">WilcoxonResult</span><span class="p">(</span><span class="n">statistic</span><span class="o">=</span><span class="mf">120.0</span><span class="p">,</span> <span class="n">pvalue</span><span class="o">=</span><span class="mf">0.6010458469390869</span><span class="p">)</span>
+</code></pre></div><p>So the sign test also suggest our metrics do not differ.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>We selected proper metrics to guarantee the effectiveness of our experiment. But finally the result suggests at a significant level, and error level we care, we should not launch the experiment.</p>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+          <span class="separator"><a class="category" href="/ar/categories/data-analysis/">Data Analysis</a></span>
+
+
+
+
+        
+
+        
+          <span class="separator"><a class="tag" href="/ar/tags/a/b-testing/">A/B Testing</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          Ran Zhang
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></body>
+</html>
