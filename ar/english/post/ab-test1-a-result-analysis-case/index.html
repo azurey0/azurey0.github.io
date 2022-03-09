@@ -17,7 +17,7 @@
   </title>
 
   
-  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.92.2" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.93.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta
     name="description"
     content="
@@ -66,8 +66,8 @@
   
   <script
     type="text/javascript"
-    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
-    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    src="/js/anatole-header.min.d0408165d31a17f17bba83038bf54e86121f85021bdf936382e636f0f77a952f.js"
+    integrity="sha256-0ECBZdMaF/F7uoMDi/VOhhIfhQIb35NjguY28Pd6lS8="
     crossorigin="anonymous"
   ></script>
 
@@ -76,8 +76,8 @@
     
     <script
       type="text/javascript"
-      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
-      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      src="/js/anatole-theme-switcher.min.65e936b591bf81484a5ac438c8e4ae6454fb25516d58ce911e4888d7f230bdc5.js"
+      integrity="sha256-Zek2tZG/gUhKWsQ4yOSuZFT7JVFtWM6RHkiI1/IwvcU="
       crossorigin="anonymous"
     ></script>
 
@@ -266,7 +266,7 @@
   <div class="sidebar__content">
     <div class="logo-title">
       <div class="title">
-        <img src="/images/profile2.jpg" alt="profile picture" />
+        <img src="/images/profile.jpg" alt="profile picture" />
         <h3 title=""><a href="/ar">I&#39;m Zhang Ran</a></h3>
         <div class="description">
           <p>Hey! I am Ran Zhang</p>
@@ -316,8 +316,8 @@
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
-    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    src="/js/medium-zoom.min.4a40b20209bc12e56cf77caff5feaa93fecd6b0d97d51b33afb0265a732ce636.js"
+    integrity="sha256-SkCyAgm8EuVs93yv9f6qk/7Naw2X1Rszr7AmWnMs5jY="
     crossorigin="anonymous"
   ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
       defer
@@ -347,7 +347,7 @@
 <p> The dataset is generated from Cookie Cats, a mobile puzzle game from Tactile Entertainment several years ago. The game was a classic type of ‘connect three’ game: when players connect three blocks of the same color, the blocks are cleared. And once all the blocks are cleared on the screen, the player enters the next level. When players reach a certain level, they will have to wait a certain time to unlock the next level, or they make purchases. The company is deciding whether to set the in-app purchase level at 30 or 40. So they set up an A/B test to decide which level benefits more in terms of the game round and retention: a similar number of customers were assigned to level 30 and level 40 respectively and randomly, and after some time, the two groups’ game rounds, 1-day retention and 7-day retention of each player are documented.</p>
 <p> To analyze the result, I first do a descriptive analysis for the three metrics. Then for the game rounds, the non-parametric test is used to statistically decide which group has the larger number. For 1-day retention and 7-retention, bootstrapping, i.e., repetitive sampling from the result set, is conducted to measure and compare the result.</p>
 <h2 id="data-description">Data Description</h2>
-<p> The dataset contains information of 90189 players' records without null values, among which 44700 users were assigned to level_30 group randomly, 45489 users were assigned to level 40. Following is a screenshot of the first few rows from the dataset:<br>
+<p> The dataset contains information of 90189 players&rsquo; records without null values, among which 44700 users were assigned to level_30 group randomly, 45489 users were assigned to level 40. Following is a screenshot of the first few rows from the dataset:<br>
 <figure><img src="/images/abtest/1.png"/>
 </figure>
 </p>
@@ -369,7 +369,7 @@
 <p> More than 2500 users gave up in the first few rounds for each group and then the trend becomes gentler as the game round increased. The 2 groups perform similarly as the two lines stick to each other.<br>
  Why is that happening? A first guess is the nature of app store downloading: the data is recorded for every user who downloaded the app, which means there might be some users mistakenly click the download button, or some users don’t research thoroughly before they download and after a few rounds’ test they gave up the game. Another guess would be the nature of the game industry: after users play sometime, the game content is fully exploited and the user lifetime comes to an end naturally. However, further investigation could be made based on the needs of the company.</p>
 <h4 id="analysis-of-game-round---statistical-test">Analysis of Game Round - Statistical Test</h4>
-<p>  Next, I performed a statistical test to decide there is a significant difference in the game rounds of the two groups. I checked the distribution of game rounds of two groups by Shaprio-Wilk test, a test of normality with a null hypothesis as ‘the data is normally distributed' and alternative hypothesis as ‘the data is not normally distributed’. The two groups both give p-value of 0.0, indicating we have enough evidence to reject null hypothesis and conclude the distribution is non-normal. Then I conducted Man-Whitney U test, a non-parametric test with similar usages of two-sample t-test, to see if there’s a significant difference between the 2 groups:</p>
+<p>  Next, I performed a statistical test to decide there is a significant difference in the game rounds of the two groups. I checked the distribution of game rounds of two groups by Shaprio-Wilk test, a test of normality with a null hypothesis as ‘the data is normally distributed&rsquo; and alternative hypothesis as ‘the data is not normally distributed’. The two groups both give p-value of 0.0, indicating we have enough evidence to reject null hypothesis and conclude the distribution is non-normal. Then I conducted Man-Whitney U test, a non-parametric test with similar usages of two-sample t-test, to see if there’s a significant difference between the 2 groups:</p>
 <p>$$ H_0: Level \space 30 \space has \space smaller \space or \space equal \space mean \space play \space rounds \space than \space Level \space 40 \space group$$</p>
 <p>$$ H_1: Level \space 30 \space group \space has \space a \space larger \space mean \space play \space rounds  \space than \space Level \space  40 \space group $$</p>
 <p> And the test result gives a p-value of 0.025, indicating we have enough evidence to reject the null hypothesis and level 30 group has a larger mean play rounds – if the company wants users to play more rounds of the game, they should set the level at 30.</p>
@@ -448,8 +448,8 @@
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
-    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    src="/js/medium-zoom.min.4a40b20209bc12e56cf77caff5feaa93fecd6b0d97d51b33afb0265a732ce636.js"
+    integrity="sha256-SkCyAgm8EuVs93yv9f6qk/7Naw2X1Rszr7AmWnMs5jY="
     crossorigin="anonymous"
   ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
       defer
